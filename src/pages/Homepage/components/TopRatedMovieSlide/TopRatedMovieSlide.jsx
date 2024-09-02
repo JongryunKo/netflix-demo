@@ -33,7 +33,7 @@ const TopRatedMovieSlide = () => {
     }
     return (
         <div style={{backgroundColor: 'black'}}>
-            <h3 style={{paddingLeft: 20}}>Popular Movies</h3>
+            <h3 style={{paddingLeft: 20}}>Top Rated Movies</h3>
             <Carousel
                 infinite={true}
                 centerMode={true}
