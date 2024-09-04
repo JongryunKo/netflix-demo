@@ -80,7 +80,7 @@ const MoviePage = () => {
   }, [data])
 
   if(!movieList || movieList.length === 0){
-    return <p style={{justifyContent:'center'}}>데이터가 없습니다.</p>
+    return <p className='noDataArea'>데이터가 없습니다.</p>
   }
 
   if (isLoading) {
