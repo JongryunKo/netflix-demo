@@ -24,11 +24,8 @@ const MoviePage = () => {
   const keyword = query.get("q");
   const [sortedMovies, setSortedMovies] = useState([]);
   const [filteredAndSortedMovies, setFilteredAndSortedMovies] = useState([]);
-
   const { data: genreData } = useGetGenreQuery()
-
-
-  const { data, isLoading, isError, error, isSuccess } = useSearchMoviesQuery({ keyword, page })
+  const { data, isLoading, isError, error, isSuccess } = useSearchMoviesQuery({ keyword, page, sort, filter })
 
   const handlePageClick = ({ selected }) => {
     setPage(selected + 1)
@@ -49,15 +46,12 @@ const MoviePage = () => {
     
     if (movieList.length > 0) {
       let filteredMovies = [...movieList];
-      //console.log('filteredMovies', filteredMovies)
       // 필터링
       if (filter) {
-        //console.log("filter===>", filter)
         filteredMovies = filteredMovies.filter((movie)=> movie.genre_ids.includes(Number(filter)));
         console.log("filteredMovies", filteredMovies)
       }
 
-        
       const sorted = filteredMovies.sort((a, b) => {
         switch (sort) {
           case 'popularity':
@@ -71,7 +65,6 @@ const MoviePage = () => {
         }
       });
       setFilteredAndSortedMovies(sorted);
-      console.log('filteredAndSortedMovies===>', filteredAndSortedMovies)
     }
   }, [sort, filter, movieList])
 
@@ -86,6 +79,9 @@ const MoviePage = () => {
     }
   }, [data])
 
+  if(!movieList || movieList.length === 0){
+    return <p style={{justifyContent:'center'}}>데이터가 없습니다.</p>
+  }
 
   if (isLoading) {
     return (
@@ -102,7 +98,8 @@ const MoviePage = () => {
     return <Alert variant='danger'>{error.message}</Alert>
   }
   return (
-    <Container>
+   
+    <Container style={{height:'100%', backgroundColor:"black"}}>
       <Row>
         <Col lg={4} xs={12} className="custom-dropdown-col">
           <DropdownButton
