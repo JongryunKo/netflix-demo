@@ -26,7 +26,7 @@ const MoviePage = () => {
   const [filteredAndSortedMovies, setFilteredAndSortedMovies] = useState([]);
   const { data: genreData } = useGetGenreQuery()
   const { data, isLoading, isError, error, isSuccess } = useSearchMoviesQuery({ keyword, page, sort, filter })
-
+  console.log(data);
   const handlePageClick = ({ selected }) => {
     setPage(selected + 1)
   }

@@ -16,6 +16,7 @@ function App() {
     <Routes>
       <Route path='/' element={<AppLayout></AppLayout>}>
         <Route index element={<Homepage></Homepage>}/>
+        <Route path='/:id' element={<MovieDetailPage></MovieDetailPage>}/>
         <Route path='movies'>
           <Route index element={<MoviePage></MoviePage>} />
           <Route path=':id' element={<MovieDetailPage></MovieDetailPage>}/>

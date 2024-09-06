@@ -2,8 +2,13 @@ import React from 'react'
 import { Badge } from 'react-bootstrap'
 import './MovieCard.style.css'
 import { useGetGenreQuery } from '../../hooks/useGetGenre'
+import { useNavigate } from 'react-router-dom'
 const MovieCard = ({ movie }) => {
     const { data: genreData } = useGetGenreQuery()
+    const navigate = useNavigate();
+    const showDetail=()=>{
+        navigate(`/${movie.id}`)
+    }
     const showGenre = (genreIdList) => {
         if (!genreData) return [];
         
@@ -20,6 +25,7 @@ const MovieCard = ({ movie }) => {
                 ,
             }}
             className='movie-card'
+            onClick={showDetail}
 
 
         >
