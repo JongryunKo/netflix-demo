@@ -31,6 +31,7 @@ const MovieDetailPage = () => {
 
   const showGenre = (genreIdList) => {
     if (!genreData) return [];
+    if (!genreIdList) return [];
     const genreNameList = genreIdList.map((item1) => {
       const genreObj = genreData.find((genre) => genre.id == item1.id)
       return genreObj.name
