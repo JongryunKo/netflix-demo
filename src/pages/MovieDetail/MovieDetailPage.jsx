@@ -43,7 +43,7 @@ const MovieDetailPage = () => {
 
 
   return (
-    <Container style={{ height: '100%', backgroundColor: "black" }}>
+    <Container style={{ height: '100%', width: '100%', backgroundColor: "black" }}>
       <Row>
         <Col lg={5} xs={12} className="custom-dropdown-col">
           <div className='movie-poster' style={{ backgroundImage: "url(" + `https://www.themoviedb.org/t/p/w600_and_h900_bestv2${data?.poster_path}` + ")" }}></div>
@@ -65,7 +65,7 @@ const MovieDetailPage = () => {
               <Modal show={show} onHide={handleClose} className="custom-modal" size='lg'>
                 <Modal.Body>
                   <YouTube videoId={youtubeKey} opts={{
-                    height: '490',
+                    height: '390',
                     width : '100%',
                     playerVars:{
                       autoplay: 1,

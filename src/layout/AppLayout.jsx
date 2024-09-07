@@ -42,7 +42,7 @@ const AppLayout = () => {
                 value={keyword} onChange={(event) => setKeyword(event.target.value)}
               />
               <Button variant="search">
-                <FontAwesomeIcon icon={faMagnifyingGlass} style={{color:"red"}} />
+                <FontAwesomeIcon icon={faMagnifyingGlass} style={{color:"red"}} onClick={searchByKeyword}/>
               </Button>
             </Form>
           </Navbar.Collapse>
